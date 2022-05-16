@@ -36,7 +36,7 @@ def take_photo():
     camera = PiCamera()
     time.sleep(2)
 
-    camera.capture("C:/All/CryptoTracker/img.jpg")
+    camera.capture("/home/pi/Desktop/CryptoTracker/reaction.jpg")
 
 
 def display_menu():
