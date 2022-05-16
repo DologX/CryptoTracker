@@ -1,5 +1,7 @@
 # crypto display
 import requests
+import time
+from picamera import PiCamera
 
 
 # Get eGLD Price
@@ -30,6 +32,13 @@ def get_itheum_price():
     return itheum_price
 
 
+def take_photo():
+    camera = PiCamera()
+    time.sleep(2)
+
+    camera.capture("C:/All/CryptoTracker/img.jpg")
+
+
 def display_menu():
     print("Type '1' to show eGLD price")
     print("Type '2' to show MEX price")
@@ -49,12 +58,16 @@ def main():
             exit()
         elif command == '1':
             print("eGLD Value: " + str(get_egld_price())[:8] + "$\n\n")
+            take_photo()
         elif command == '2':
             print("MEX Value: " + str(get_mex_price())[:8] + "$\n\n")
+            take_photo()
         elif command == '3':
             print("RIDE Value: " + str(get_ride_price())[:8] + "$\n\n")
+            take_photo()
         elif command == '4':
             print("ITHEUM Value: " + str(get_itheum_price())[:8] + "$\n\n")
+            take_photo()
 
 
 main()
